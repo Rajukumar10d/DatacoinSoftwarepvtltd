@@ -35,10 +35,11 @@ app.use(cors({
     // Fix: Normalize origin by removing trailing slash if present
     const normalizedOrigin = origin ? origin.replace(/\/$/, '') : origin;
 
-    // Check if origin is localhost or 127.0.0.1 (any port)
+    // Check if origin is localhost or 127.0.0.1 (any port) or a Vercel deployment
     const isLocal = normalizedOrigin && (
       normalizedOrigin.startsWith('http://localhost') ||
-      normalizedOrigin.startsWith('http://127.0.0.1')
+      normalizedOrigin.startsWith('http://127.0.0.1') ||
+      normalizedOrigin.endsWith('.vercel.app')
     );
 
     // allow non-browser requests (e.g. Postman) when origin is undefined
