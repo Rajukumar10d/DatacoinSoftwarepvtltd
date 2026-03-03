@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import './Contact.css';
+import { sendContact } from '../services/contactService';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,12 +23,16 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
+    setError('');
+
+    try {
+      const { data } = await sendContact(formData);
+      console.log('api response', data);
+      setSubmitted(true);
       setFormData({
         name: '',
         email: '',
@@ -36,8 +41,13 @@ const Contact = () => {
         service: '',
         message: ''
       });
-      setSubmitted(false);
-    }, 3000);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      console.error(err);
+      setError(
+        err.response?.data?.message || 'Unable to send message. Please try again later.'
+      );
+    }
   };
 
   const contactMethods = [
@@ -104,6 +114,12 @@ const Contact = () => {
             {submitted && (
               <div className="success-message">
                 <p>✓ Thank you! Your message has been sent successfully. We'll be in touch soon.</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="error-message">
+                <p>{error}</p>
               </div>
             )}
 
