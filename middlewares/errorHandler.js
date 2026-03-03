@@ -7,6 +7,10 @@ const notFound = (req, res, next) => {
 // General error handling middleware
 // This middleware catches any error that occurs in the application
 const errorHandler = (err, req, res, next) => {
+    // Log the error to console for debugging in production
+    console.error(`💥 Error: ${err.message}`);
+    if (err.stack) console.error(err.stack);
+
     // If the status code is still 200, it means an error occurred but the status wasn't set.
     // In that case, set it to 500 (Internal Server Error).
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;

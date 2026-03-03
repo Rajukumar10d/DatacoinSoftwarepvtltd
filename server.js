@@ -13,6 +13,12 @@ const { notFound, errorHandler } = require("./middlewares/errorHandler");
 // Load environment variables from .env file
 dotenv.config();
 
+// Ensure JWT_SECRET is available
+if (!process.env.JWT_SECRET) {
+  console.warn('⚠️ WARNING: JWT_SECRET not found in .env. Using a temporary fallback secret. Please set this in production!');
+  process.env.JWT_SECRET = 'temporary_fallback_secret_for_datacoin_123';
+}
+
 // Connect to MongoDB
 connectDB();
 
