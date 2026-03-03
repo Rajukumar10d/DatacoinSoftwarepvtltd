@@ -7,7 +7,7 @@
     "server": "node server.js",
     "client": "vite",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "vite build",
+    "build": "vite build && git add . && git commit -m \"production build\" && git push origin main",
     "preview": "vite preview",
     "start": "node server.js",
     "test": "react-scripts test"

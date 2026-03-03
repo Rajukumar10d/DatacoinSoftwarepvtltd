@@ -37,8 +37,8 @@ app.use(cors({
 
     // Check if origin is localhost or 127.0.0.1 (any port) or a Vercel deployment
     const isLocal = normalizedOrigin && (
-      normalizedOrigin.startsWith('http://localhost') ||
-      normalizedOrigin.startsWith('http://127.0.0.1') ||
+      normalizedOrigin.includes('localhost') ||
+      normalizedOrigin.includes('127.0.0.1') ||
       normalizedOrigin.endsWith('.vercel.app')
     );
 

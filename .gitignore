@@ -22,8 +22,8 @@ backend/txt_result.txt
 backend/txt_raw.txt
 
 # Production
-frontend/dist/
-frontend/build/
+dist/
+build/
 
 # OS files
 .DS_Store
