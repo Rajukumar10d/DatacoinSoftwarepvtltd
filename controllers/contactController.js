@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const Contact = require('../model/contact');
+const Contact = require('../model/Contact');
 
 // create a new contact submission
 const createContact = asyncHandler(async (req, res) => {
