@@ -4,7 +4,7 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "https://datacoinsoftwarepvtltd.onrender.com/api/$1"
+            "destination": "https://datacoin-backend.onrender.com/api/$1"
         },
         {
             "source": "/(.*)",
