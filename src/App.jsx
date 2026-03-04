@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './App.css';
@@ -29,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<div className="container" style={{ padding: '100px 20px', textAlign: 'center' }}><h1>404 - Page Not Found</h1><p>The page you are looking for does not exist.</p><Link to="/" className="btn btn-primary" style={{ marginTop: '20px' }}>Go Home</Link></div>} />
           </Routes>
         </Suspense>
         <Footer />

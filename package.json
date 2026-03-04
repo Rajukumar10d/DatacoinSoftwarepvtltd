@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "server": "node server.js",
     "client": "vite",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "vite build && git add . && git commit -m \"production build\" && git push origin main",
+    "build": "vite build",
     "build:prod": "vite build",
     "preview": "vite preview",
     "start": "node server.js",

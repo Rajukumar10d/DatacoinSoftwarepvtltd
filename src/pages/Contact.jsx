@@ -31,7 +31,6 @@ const Contact = () => {
 
     try {
       const { data } = await sendContact(formData);
-      console.log('api response', data);
       setSubmitted(true);
       setFormData({
         name: '',
@@ -79,7 +78,7 @@ const Contact = () => {
 
   return (
     <div className="contact">
-      <Hero 
+      <Hero
         title="Get In Touch"
         subtitle="Let's Talk About Your Project"
         description="Have a question or ready to start your next project? We'd love to hear from you. Reach out to our team today."
@@ -223,7 +222,7 @@ const Contact = () => {
           <div className="container">
             <h2>Visit Our Office</h2>
             <p>📍 Jaipur, Rajasthan, India</p>
-            <p style={{marginTop: '10px'}}>Open Monday - Friday, 9am - 6pm PST</p>
+            <p style={{ marginTop: '10px' }}>Open Monday - Friday, 9am - 6pm PST</p>
           </div>
         </div>
       </section>
